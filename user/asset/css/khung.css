@@ -1,0 +1,319 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    min-height: 1000px;
+    position: absolute;
+    margin-top: 100px;
+    padding-top: 10px;
+}
+
+.header {
+    background-color: rgb(43, 42, 44);
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formlogo {
+    background-color: none;
+    width: 225px;
+    height: 100px;
+}
+
+.formsearth {
+    background-color: none;
+    width: 860px;
+    height: 100px;
+}
+
+.formicon {
+    background-color: none;
+    width: 395px;
+    height: 100px;
+    display: flex;
+}
+
+.mainsearth {
+    background-color: white;
+    width: 810px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.search {
+    width: 760px;
+    border: none;
+    border-radius: 20px 0px 0px 20px;
+    outline: none;
+    font-size: 16px;
+    border-bottom: solid 4px rgb(81, 169, 241);
+    background: none;
+    margin: 0;
+}
+
+.buttonsearth {
+    width: 50px;
+    border: none;
+    border-radius: 0px 20px 20px 0px;
+    outline: none;
+    background: none;
+    border-bottom: solid 4px rgb(81, 169, 241);
+}
+
+#content {
+    margin: auto;
+    width: 70%;
+    height: 100em;
+    border-radius: 0px 20px 20px 20px;
+    box-shadow: 3px 2px 1px #AAA;
+    padding-top: 10px;
+}
+
+#menu {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    line-height: 30px;
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    line-height: 30px;
+}
+
+#menu li {
+    background-color: rgb(175, 201, 248);
+    border-bottom: solid 1px white;
+    width: 200px;
+}
+
+.bo {
+    margin: 0px;
+    position: relative;
+    width: 200px
+}
+
+.con {
+    background-color: rgb(134, 174, 247);
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    display: none;
+}
+
+.con2 {
+    background-color: rgb(134, 174, 247);
+    position: absolute;
+    left: 150px;
+    top: 0px;
+    display: none;
+}
+
+.bo:hover {
+    background-color: rgb(121, 164, 245);
+}
+
+.con li:hover {
+    background-color: rgb(121, 164, 245);
+}
+
+.bo:hover .con {
+    display: block;
+}
+
+.bo:hover a {
+    color: white;
+}
+
+.con li:hover a {
+    color: black;
+}
+
+ul a {
+    margin-left: 10px;
+    font-family: sans-serif;
+    color: black;
+}
+
+.fa {
+    margin-right: 10px
+}
+
+.fa-mobile {
+    font-size: x-large;
+}
+
+.profile:hover {
+    color: white;
+}
+
+.menu_header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    line-height: 30px;
+}
+
+.menu_header {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    line-height: 30px;
+    display: flex;
+    margin-left: 50px;
+    margin-top: -9px;
+    text-align: center;
+}
+
+.cha a {
+    text-decoration: none;
+    color: rgb(70, 128, 236);
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.menu_header li {
+    background: none;
+}
+
+.cha {
+    position: relative;
+    width: 100px;
+}
+
+.con_header {
+    position: absolute;
+    display: none;
+}
+
+.cha:hover .con_header {
+    display: block;
+    background-color: rgb(179, 203, 247);
+}
+
+.cha:hover {
+    background-color: rgb(83, 81, 81);
+}
+
+.con_header li a:hover {
+    color: white;
+}
+
+.con_header li a {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.fa-shopping-cart {
+    margin-top: 20px;
+    margin-left: 30px;
+    float: right;
+    font-size: xxx-large;
+    color: rgb(70, 128, 236);
+}
+
+.fa-shopping-cart:hover {
+    color: white;
+}
+
+.fa-phone {
+    font-size: xxx-large;
+    margin: 18px;
+    color: rgb(0, 0, 0)
+}
+
+.fa-plus-circle {
+    font-size: 400%;
+}
+
+.banner {
+    width: 1042px;
+    height: 400px;
+    background-color: aqua;
+    border-radius: 15px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.anh img {
+    width: 1042px;
+    height: 400px;
+    float: left;
+}
+
+.anh {
+    width: 8888px;
+    transition: all 1s;
+}
+
+.nut {
+    position: absolute;
+    top: 180px;
+    color: white;
+    font-size: 50px;
+    left: 10px;
+    display: none;
+}
+
+.nut i:last-child {
+    position: absolute;
+    left: 990px;
+}
+
+.container:hover .nut {
+    display: block;
+}
+
+#container1 {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding-top: 50px;
+    box-shadow: 2px -2px 15px #AAA;
+    position: absolute;
+    margin-left: 11%;
+    margin-top: 100px;
+}
+
+#main1 {
+    border: 1px solid #e5e5e5;
+    width: 1100px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+#left1 {
+    width: 500px;
+    height: 100%;
+}
+
+#right1 {
+    width: 568px;
+    border-left: solid 1px #e5e5e5;
+}
+
+.tsp:hover .er {
+    border-top: 1px solid;
+}
+
+.page:hover {
+    background-color: white;
+}

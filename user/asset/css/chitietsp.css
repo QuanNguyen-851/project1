@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.thongtin {
+
+    width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    padding-top: 20px;
+
+}
+
+.mua {
+    border: none;
+    outline: none;
+    background: rgb(70, 128, 236);
+    line-height: 35px;
+    margin-left: 240px;
+    width: 125px;
+    text-align: center;
+}
+
+#anh {
+    margin: auto;
+    background: aqua;
+    width: 498px;
+    height: 398px;
+    overflow: hidden;
+}
+
+#anh img {
+    width: 500px;
+    height: 400px;
+    margin: -2px;
+}
+
+.slide {
+    width: 9999px;
+    margin: 0;
+    transition: 0s;
+}
+
+.phu {
+
+    height: 100px;
+    margin-top: 20px;
+
+}
+
+.phu img {
+    width: 100px;
+    height: 100px;
+}
+
+.imgp {
+    border: none;
+
+}
+
+#popup {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
+    display: none;
+    margin-top: 100px;
+}
+
+#main-popup {
+    width: 600px;
+    height: 250px;
+    background-color: white;
+    margin: auto;
+    margin-top: 20px;
+}
