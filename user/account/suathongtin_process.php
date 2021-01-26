@@ -1,5 +1,6 @@
 <?php
 if (
+    isset($_SESSION['user']) &&
     isset($_POST['mauser']) &&
     isset($_POST['tenuser']) && isset($_POST['email'])
     && isset($_POST['sdt']) && isset($_POST['DoB']) &&
@@ -19,4 +20,6 @@ if (
     mysqli_query($con, $sql);
     header("Location: thongtintaikhoan.php");
     include("../../connect/open.php");
+} else {
+    header("Location: ../common/index.php ");
 }

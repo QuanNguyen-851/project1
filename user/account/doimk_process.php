@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (isset($_POST["old_pass"]) && isset($_POST["new_pass"]) && isset($_GET['user'])) {
+
+if (isset($_POST["old_pass"]) && isset($_POST["new_pass"]) && isset($_GET['user']) && isset($_SESSION['user'])) {
     $old_pass = md5($_POST['old_pass']);
     $newp_pass = md5($_POST['new_pass']);
     $newpv = $_POST['new_pass'];
@@ -13,4 +14,6 @@ if (isset($_POST["old_pass"]) && isset($_POST["new_pass"]) && isset($_GET['user'
     }
     header("Location: thongtintaikhoan.php?p=1");
     include("../../connect/close.php");
+} else {
+    header("Location: ../common/index.php ");
 }

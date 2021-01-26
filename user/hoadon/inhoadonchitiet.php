@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['giohang']) && isset($_GET['mauser']) && isset($_GET['time'])) {
+if (isset($_SESSION['giohang']) && isset($_SESSION['user']) && isset($_GET['mauser']) && isset($_GET['time'])) {
     $mauser = $_GET['mauser'];
     $time = $_GET['time'];
     $giohang = $_SESSION['giohang'];

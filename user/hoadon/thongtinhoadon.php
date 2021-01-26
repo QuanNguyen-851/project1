@@ -54,7 +54,7 @@ if (isset($_POST['tongtien'])) {
         input {
             width: 250px;
             height: 30px;
-            border: none;
+            border-radius: 5px;
             outline: none;
         }
 
@@ -63,7 +63,7 @@ if (isset($_POST['tongtien'])) {
             height: 100px;
             max-width: 250px;
             max-height: 100px;
-            border: none;
+            border-radius: 5px;
             outline: none;
 
         }
