@@ -7,4 +7,6 @@ if (isset($_SESSION['user'])) {
         unset($_SESSION['giohang']);
     }
     header('Location: formdangnhap.php');
+} else {
+    header("Location: ../common/index.php ");
 }

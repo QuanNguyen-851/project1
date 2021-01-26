@@ -12,4 +12,6 @@ if (isset($_GET['username'])) {
     } else {
         echo "1";
     }
+} else {
+    header("Location: ../common/index.php ");
 }

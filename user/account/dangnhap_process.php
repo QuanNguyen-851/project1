@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION['user'])) {
+    header("Location: ../common/index.php ");
+}
 if (isset($_POST['user']) && isset($_POST['pass'])) {
 
     $user = $_POST['user'];

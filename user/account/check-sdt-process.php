@@ -12,4 +12,6 @@ if (isset($_GET['sdt'])) {
     } else {
         echo "1";
     }
+} else {
+    header("Location: ../common/index.php ");
 }
