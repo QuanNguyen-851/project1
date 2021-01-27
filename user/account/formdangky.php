@@ -143,7 +143,7 @@ if (isset($_SESSION['user'])) {
             if (usern == '') {
                 errn.innerHTML = "không được để trống";
             } else if (checkregegxn == false) {
-                errn.innerHTML = "phần này không được chứa kí tự đặc biệt ";
+                errn.innerHTML = "Tên tài khoản không đươc chứa khoảng trống và kí tự đặc biệt ";
 
             } else {
                 errn.innerHTML = "";
