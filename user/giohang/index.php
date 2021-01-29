@@ -147,6 +147,7 @@ session_start();
                                             <in class=" fas fa-minus"></in>
                                         </a>
                                         <input style="text-align: center;width: 25px;" type="text" readonly value="<?php echo $soluong ?>">
+
                                         <a href="plus.php?masp=<?php echo $masp ?>&soluong=<?php echo $soluong ?> ">
                                             <in class="fas fa-plus"></in>
                                         </a>
