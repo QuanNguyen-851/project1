@@ -49,13 +49,7 @@ session_start();
 
 <body>
     <div id="main">
-        <div style=" float: right;    width: 0px;;height: 200px;">
-            <div style="width: 80px;height: 80px; background: rgb(62, 192, 231);position: fixed; top: 35em;
-                right: 1em;border-radius: 40px;text-align:center">
-                <a href="tel:0986680849"><i class="fa fa-phone" aria-hidden="true"></i></a>
-            </div>
 
-        </div>
         <div id="content">
 
             <div style="width: 99%; height:60em; background-color:none  ; margin: auto;  display: flex; 
