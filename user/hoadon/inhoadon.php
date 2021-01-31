@@ -1,13 +1,28 @@
 <?php
 session_start();
 if (isset($_SESSION['giohang']) && isset($_SESSION['user']) && isset($_POST['tongtien']) && isset($_POST['ten']) && isset($_POST['sdt']) && isset($_POST['address'])) {
+    include("../../connect/open.php");
+    $giohang = $_SESSION['giohang'];
+
+    foreach ($giohang as $masp => $soluong) {
+        //lấy số lượng sản phẩm trong kho
+        $soluongsp = "SELECT * FROM `product` WHERE maSP='$masp'";
+        $resultsp = mysqli_query($con, $soluongsp);
+        $kho = mysqli_fetch_array($resultsp);
+        //trừ số lượng sản phẩm trong dtb
+        if ($kho['soLuong'] >= $soluong) {
+            $update = $kho['soLuong'] - $soluong;
+            $sqlupdate = "UPDATE `product` SET`soLuong`='$update' WHERE maSP='$masp'";
+            mysqli_query($con, $sqlupdate);
+        }
+    }
     $tongtien = $_POST['tongtien'];
     $ten = $_POST['ten'];
     $sdt = $_POST['sdt'];
     $address = $_POST['address'];
     date_default_timezone_set("Asia/Ho_Chi_Minh");
     $time = date("Y-m-d") . " " . date("H:i:s");
-    include("../../connect/open.php");
+
     $tenuser = $_SESSION['user'];
     $sqluser = "select * from user1 where `userName`='$tenuser'";
     $resultuser = mysqli_query($con, $sqluser);

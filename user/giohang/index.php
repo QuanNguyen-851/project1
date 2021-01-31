@@ -150,7 +150,15 @@ session_start();
 
                                         <a href="plus.php?masp=<?php echo $masp ?>&soluong=<?php echo $soluong ?> ">
                                             <in class="fas fa-plus"></in>
-                                        </a>
+                                        </a><br>
+                                        <?php
+                                        if (isset($_GET['err'])) {
+                                        ?>
+                                            <a style="color: red;font-size: 11px;">xin lỗi sản phẩm trong kho không đủ <?php echo $soluong + 1 ?> </a>
+                                        <?php
+                                        }
+                                        ?>
+
                                     </td>
                                     <?php $sotien = $sanpham['gia'] * $soluong; ?>
                                     <td width="150px" style="text-align: center"><?php echo number_format($sotien) . " VND" ?></td>

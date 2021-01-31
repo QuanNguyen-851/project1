@@ -98,7 +98,11 @@ include '../../connect/close.php';
                     </table>
                     <div class="mua">
                         <?php
-                        if ($product['trangThai'] == "") {
+                        if ($product['soLuong'] == "0") {
+                        ?>
+                            <a style="color:white;text-decoration:none; ">Hết hàng</a>
+                        <?php
+                        } else if ($product['trangThai'] == "") {
                         ?>
                             <a onclick="them()" href="#" style="color:white;text-decoration:none">Thêm vào giỏ hàng</a>
                         <?php
@@ -106,7 +110,6 @@ include '../../connect/close.php';
                         ?>
                             <a style="color:white;text-decoration:none; ">Ngừng kinh doanh</a>
                         <?php
-
                         }
                         ?>
 

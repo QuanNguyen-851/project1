@@ -49,7 +49,7 @@
                 </a>
             </div>
             <a href="../common/send_mail.php" style="color:rgb(70, 128, 236);line-height: 27px;margin-left: 25px;;margin-top: 30px;;font-size: x-large; text-decoration: none;">
-                <div class="profile"><i class="fa fa-envelope-o" aria-hidden="true"></i>Email</div>
+                <div class="profile"><i class="fa fa-envelope-o" aria-hidden="true"></i>Contact</div>
             </a>
             <?php
             if (isset($_SESSION["user"])) {
