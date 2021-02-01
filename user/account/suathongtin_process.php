@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (
     isset($_SESSION['user']) &&
     isset($_POST['mauser']) &&
@@ -13,10 +14,11 @@ if (
     $DoB = $_POST['DoB'];
     $gt = $_POST['gt'];
     $address = $_POST['address'];
+    echo $address;
     include("../../connect/open.php");
     $sql = "UPDATE `user1` SET 
-   `tenUser`='$tenuser',`SDT`='$sdt',`Email`='$email',
-   `gioiTinh`='$gt',`DoB`='$DoB',`address`='$address' WHERE `maUser`='$mauser' ";
+       `tenUser`='$tenuser',`SDT`='$sdt',`Email`='$email',
+       `gioiTinh`='$gt',`DoB`='$DoB',`address`='$address' WHERE `maUser`='$mauser' ";
     mysqli_query($con, $sql);
     header("Location: thongtintaikhoan.php");
     include("../../connect/open.php");

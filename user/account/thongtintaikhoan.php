@@ -44,6 +44,7 @@ if (isset($_SESSION["user"]) == false) {
 
             ?>
             <div id="bottom">
+                <!--  -->
                 <form action="suathongtin_process.php" method="post">
                     <table width=" 100%" height="500px" border="0" cellspacing="0" cellpadding="10">
                         <tr>
@@ -91,7 +92,7 @@ if (isset($_SESSION["user"]) == false) {
                         </tr>
                         <tr>
                             <td class="t">Email</td>
-                            <td><input size="50" type="email" id="email" name="email" onchange="checkemail(this.value)" required value="<?php echo $user['Email'] ?>"><br>
+                            <td><input size="50" type="text" id="email" name="email" onchange="checkemail(this.value)" value="<?php echo $user['Email'] ?>"><br>
                                 <span id="erremail" style="color:red"></span>
                             </td>
                         </tr>
@@ -149,7 +150,7 @@ if (isset($_SESSION["user"]) == false) {
 
     <script>
         //check email
-        var dem = 0
+        var dem = 1
 
         function checkemail(str) {
             var erremail = document.getElementById("erremail");
@@ -171,7 +172,7 @@ if (isset($_SESSION["user"]) == false) {
             xmlhttp.send();
         }
         //check sdt
-        var dem1 = 0
+        var dem1 = 1
 
         function checksdt(str) {
             var errsdt = document.getElementById("errsdt");
@@ -196,7 +197,25 @@ if (isset($_SESSION["user"]) == false) {
         var checkn = 0;
 
         function check() {
+
             var checkn = 0;
+            //check email 
+            var erremail = document.getElementById("erremail");
+            var email = document.getElementById("email").value;
+            var regexe = /^[\w\.\_]+@[a-z]{2,10}(\.[a-z]{2,10}){1,2}$/;
+            var checkregexe = regexe.test(email);
+            if (email == '') {
+                erremail.innerHTML = "không được để trống";
+
+            } else if (checkregexe) {
+                erremail.innerHTML = '';
+                checkn++;
+            } else {
+                erremail.innerHTML = 'sai định dạng';
+            }
+
+
+            //check sdt
             var sdt = document.getElementById("sdt").value;
             var errsdt = document.getElementById("errsdt");
             var regex = /^(\+84|0)([0-9]{9})$/;
@@ -241,14 +260,12 @@ if (isset($_SESSION["user"]) == false) {
                 erraddress.innerHTML = "";
                 checkn++;
             }
-            if (checkn == 4 || dem == 1 || dem1 == 1) {
+            if (checkn == 5 && dem == 1 && dem1 == 1) {
                 if (confirm('bạn có chắc muốn lưu thay đổi này không')) {
                     return true;
                 } else {
                     return false;
                 }
-            } else {
-                return false;
             }
             return false;
         }

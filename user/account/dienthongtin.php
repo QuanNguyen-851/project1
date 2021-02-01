@@ -124,16 +124,20 @@ if (isset($_POST["user"]) && isset($_POST["pass"])) {
 
             <div class="input">
                 <h1>Thông tin tài khoản</h1>
-                <form method="post" action="dangky_process.php">
+                <!-- action="dangky_process.php" -->
+                <form method="post">
                     <input type="hidden" name="user" value="<?php echo $user ?>">
                     <input type="hidden" name="pass" value="<?php echo $pass ?>">
-                    <input type="text" id="name" name="name" placeholder='Tên người dùng' required><br>
-                    <input type="email" id="email" name="email" placeholder='Email' onchange="checkemail(this.value)" required><br>
+                    <input type="text" id="name" name="name" placeholder='Tên người dùng'>
+                    <span id="errname" style="color:red;"></span>
+                    <input type="text" id="email" name="email" placeholder='Email' onchange="checkemail(this.value)">
                     <div id="erremail" style="color:red;"></div>
-                    <input type="text" id="sdt" name="sdt" placeholder='Số điện thoại' onchange="checksdt(this.value)" required>
+                    <input type="text" id="sdt" name="sdt" placeholder='Số điện thoại' onchange="checksdt(this.value)">
                     <div id="errsdt" style="color:red"></div>
-                    <input type="text" id="address" name="address" placeholder='Địa chỉ' required><br>
-                    <input type="date" id="date" name="date" required><br>
+                    <input type="text" id="address" name="address" placeholder='Địa chỉ'>
+                    <span id="erraddress" style="color:red;"></span>
+                    <input type="date" id="date" name="date">
+                    <span id="errdate" style="color:red;"></span>
                     <div><label style="color: white;font-family:sans-serif;font-size: xx-large;">
                             <input type="radio" name="gt" value="1" checked> Nam</label> &emsp;
                         <label style="color: white;font-family:sans-serif;font-size: xx-large;">
@@ -188,26 +192,76 @@ if (isset($_POST["user"]) && isset($_POST["pass"])) {
                 xmlhttp.open("GET", "check-sdt-process.php?sdt=" + str, true);
                 xmlhttp.send();
             }
-            var checkn = 0;
+
 
             function check() {
+                var checkn = 0;
+                var address = document.getElementById("address").value;
+                var erraddress = document.getElementById("erraddress");
+                if (address == "") {
+                    erraddress.innerHTML = "*";
 
+                } else {
+                    erraddress.innerHTML = "";
+                    checkn++;
+                }
+                //check date
+                var DoB = document.getElementById("date").value;
+                var errDoB = document.getElementById("errdate");
+                if (DoB == "") {
+                    errDoB.innerHTML = " * ";
+                } else {
+                    errDoB.innerHTML = "";
+                    checkn++;
+                }
+                //check name
+                var ten = document.getElementById("name").value;
+                var errten = document.getElementById("errname");
+                if (ten == "") {
+                    errten.innerHTML = "*";
+                } else {
+                    errten.innerHTML = "";
+                    checkn++;
+                }
+                //check email
+                var erremail = document.getElementById("erremail");
+                var email = document.getElementById("email").value;
+                var regexe = /^[\w\.\_]+@[a-z]{2,10}(\.[a-z]{2,10}){1,2}$/;
+                var checkregexe = regexe.test(email);
+                if (email == '') {
+                    erremail.innerHTML = "không để trống";
+
+                } else if (checkregexe) {
+                    erremail.innerHTML = '';
+                    checkn++;
+                    if (dem == 0) {
+                        erremail.innerHTML = "Email này đã được sử dụng ";
+                    }
+                } else {
+                    erremail.innerHTML = 'sai định dạng';
+
+                }
+
+                //check sdt
                 var sdt = document.getElementById("sdt").value;
                 var errsdt = document.getElementById("errsdt");
                 var regex = /^(\+84|0)([0-9]{9})$/;
                 var checkregex = regex.test(sdt);
 
                 if (sdt == "") {
-                    errsdt.innerHTML = "k để trống";
+                    errsdt.innerHTML = "không để trống";
                 } else if (checkregex == false) {
                     errsdt.innerHTML = "sai định dạng";
-
-                } else if (dem1 == 1) {
-                    checkn = 1;
                 } else {
-                    errsdt.innerHTML = "số điện thoại này đã được sử dụng";
+                    errsdt.innerHTML = "";
+                    checkn++;
+                    if (dem1 == 0) {
+                        errsdt.innerHTML = "số điện thoại này đã được sử dụng ";
+                    }
                 }
-                if (checkn == 1 && dem == 1) {
+
+
+                if (checkn == 5 && dem == 1 && dem1 == 1) {
                     return true;
                 } else {
                     return false;
