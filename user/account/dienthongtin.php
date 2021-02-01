@@ -124,8 +124,8 @@ if (isset($_POST["user"]) && isset($_POST["pass"])) {
 
             <div class="input">
                 <h1>Thông tin tài khoản</h1>
-                <!-- action="dangky_process.php" -->
-                <form method="post">
+                <!--  -->
+                <form method="post" action="dangky_process.php">
                     <input type="hidden" name="user" value="<?php echo $user ?>">
                     <input type="hidden" name="pass" value="<?php echo $pass ?>">
                     <input type="text" id="name" name="name" placeholder='Tên người dùng'>
