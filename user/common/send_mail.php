@@ -118,21 +118,30 @@ session_start();
                     echo "";
                 }
                 ?>" required><br>
-                <input type="password" class="inp" name="pass" placeholder="Password"><br>
+                <input type="password" class="inp" name="pass" placeholder="Password" required><br>
                 <textarea name="noidung" id="cont" required></textarea><br>
                 <span id="err" style="color:red"></span>
                 <br>
-                <p style="color:red">
+
+                <?php
+                if (isset($_GET['err'])) {
+                    $err = $_GET['err'];
+                    if ($err == 1) {
+                ?>
+                        <p style="color:red"> Email hoặc mật khẩu của bạn không đúng</p>
                     <?php
-                    if (isset($_GET['err']) == 1) {
-                        echo " Email hoặc mật khẩu của bạn không đúng ";
-                    } else if (isset($_GET['err']) == 2) {
-                        echo "Đã gửi thành công";
+
+                    } else if ($err == 2) {
+                    ?>
+                        <p style="color:green">Gửi thành công</p>
+                <?php
                     } else {
                         echo "";
                     }
-                    ?>
-                </p>
+                }
+
+                ?>
+
                 <button>Gửi</button>
             </form>
             <div style=" margin-left: 35px;width: 95px;"><a href="../common/index.php" style="color:white;">
