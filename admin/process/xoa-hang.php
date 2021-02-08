@@ -2,7 +2,7 @@
     if (isset($_GET['ma'])) {
     	$ma = $_GET['ma'];
     	include("../../connect/open.php");
-    	$sql = "DELETE FROM hang WHERE maHang = '$ma' ";
+    	$sql = "UPDATE hang SET An = '1' WHERE maHang = '$ma' ";
     		mysqli_query($con,$sql);
     		header("location:../common/main.php?command=5");
     	include("../../connect/close.php");

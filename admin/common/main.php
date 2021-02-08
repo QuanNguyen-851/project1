@@ -7,7 +7,11 @@ if(isset($_SESSION['taikhoan'])){
 		$result = mysqli_query($con,$sql);
 		while ($thongtin = mysqli_fetch_array($result)) {
 			$quyen = $thongtin['quyen'];
-		}
+			$block = $thongtin['block'];
+			}
+			if ($block=='1') {
+				header("location:../process/dang_xuat.php");
+			}
 	} else {
 		header("location:index.php");
 	}
@@ -46,6 +50,12 @@ if(isset($_SESSION['taikhoan'])){
       	break;
       case 7:
       	include("../theloai/sua-tl.php");
+      	break;
+      case 8:
+      	include("../hoadon/chi-tiet-hoa-don.php");
+      	break;
+      case 9:
+      	include("../hoadon/hoadon.php");
       	break;
   }
   } else {

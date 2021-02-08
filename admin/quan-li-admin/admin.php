@@ -77,7 +77,7 @@
 
 	$result1 = mysqli_query($con,$sql1); 
 ?>
-	<div id='margin' style="margin-left: 3%;margin-top: 5%;border-left: 1px solid black;border-top: 1px solid black;height: 710px;display: flex;flex-wrap:wrap;background: white">
+	<div id='margin' style="margin-left: 3%;margin-top: 5%;border-left: 1px solid black;border-top: 1px solid black;display: flex;flex-wrap:wrap;background: white;min-height: 700px">
 		<div style="height: 50px;width: 100%;background: #333333;margin-bottom: 0;display: flex;border-bottom: 2px solid black">
 			<a style="color: white" onclick="document.getElementById('add').showModal()" class="thongtin" href="#">Thêm admin</a>
 			

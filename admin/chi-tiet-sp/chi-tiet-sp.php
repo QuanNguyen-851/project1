@@ -48,6 +48,7 @@ if (isset($_GET['ma'])) {
 		<div style="height: 50px;width: 100%;background: #333333;margin-bottom: 0;display: flex;">
 			<a style="color: white" class="thongtin" href="../common/main.php">Quay lại</a>
 			<a onclick="document.getElementById('sua').showModal()" class="thongtin" href="#">Sửa thông tin</a>
+			<a onclick="document.getElementById('now').showModal()" class="thongtin" href="#">Update số lượng</a>
 
 		</div>
 		<?php
@@ -57,6 +58,7 @@ if (isset($_GET['ma'])) {
 			$gia = $sp['gia'];
 			$hang1 = $sp['hang'];
 			$theloai1 = $sp['theLoai'];
+			$sl = $sp['soLuong'];
 		?>
 			<div style="width: 100%;height: 45px;color: white">
 				<h2 style="margin-top: 10px;margin-left: 10%"><?php echo $sp['tenSP']; ?></h2>
@@ -65,7 +67,7 @@ if (isset($_GET['ma'])) {
 			<div style="height: 500px;width: 100%">
 				<div style="float: left;height: 500px;width: 400px;">
 					<a onclick="document.getElementById('anh1').showModal()" href="#"><img style="margin-left: 23px;margin-top: 50px;" height="250px" width="350px" src="<?php echo $sp['anhSp']; ?>"></a><br/>
-					<div style="width:100%;height: 100px;display: flex;margin-top: 75px ">
+					<!-- <div style="width:100%;height: 100px;display: flex;margin-top: 75px ">
 						<a onclick="document.getElementById('anh2').showModal()" href="#"><div style="margin-left: 23px;height: 75px;width: 100px;border: 1px solid white">
 							<?php if (isset($sp['anhSp2']) && $sp['anhSp2']!='') {
 								?>
@@ -97,12 +99,13 @@ if (isset($_GET['ma'])) {
 							?>
 						</div></a>
 
-					</div>
+					</div> -->
 				</div>
 				<div style="float: left;height: 500px;width: 700px;">
 					<div style="margin-top: 50px;margin-left: 50px;"><font style="color: white" size="50px">Giá:<?php echo number_format( $sp['gia']).' VND'; ?></font></div>
 					<div style="margin-top: 50px;margin-left: 50px;"><font style="color: white" size="50px">Hãng:<?php echo $sp['tenHang']; ?></font></div>
 					<div style="margin-top: 50px;margin-left: 50px;"><font style="color: white" size="50px">Thể loại:<?php echo $sp['tenTheLoai']; ?></font></div>
+					<div style="margin-top: 50px;margin-left: 50px;"><font style="color: white" size="50px">Số lượng:<?php echo $sp['soLuong']; ?></font></div>
 				</div>
 				<hr width="95%">
 				<center><div style="width: 100%;height: 700px;color: white">
@@ -203,6 +206,22 @@ if (isset($_GET['ma'])) {
 		<button>Cập nhật</button><button onclick="return huy()" style="margin-left: 100px">Hủy</button>
 	</form>
 	</dialog>
+	<dialog id="now">
+		<form action="../process/update-soluong.php?ma=<?php echo $ma; ?>" method="POST">
+			<table>
+				<tr>
+					<td>Số lượng sản phẩm hiện tại:</td>
+					<th><?php echo $sl; ?></th>
+				</tr>
+				<tr>
+					<td>Thêm số lượng sản phẩm:</td>
+					<th><input style="width: 100px" type="number" name="sol" placeholder="Nhập số lượng" required="1"></th>
+				</tr>
+
+			</table><br/>
+			<button style="margin-left: 50px;">Cập nhật</button><button onclick="return huy()" style="margin-left: 100px">Hủy</button>
+		</form>
+	</dialog>
 	<script>
 		function huy(){
 			document.getElementById('anh1').close();
@@ -210,6 +229,7 @@ if (isset($_GET['ma'])) {
 			document.getElementById('anh3').close();
 			document.getElementById('anh4').close();
 			document.getElementById('sua').close();
+			document.getElementById('now').close();
 			return false;
 		}
 	</script>

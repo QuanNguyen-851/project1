@@ -60,8 +60,12 @@
 					<td class="sp"><?php echo $hang['maHang']; ?></td>
 					<td class="sp"><?php echo $hang['tenHang']; ?></td>
 					<td class="sp"><a href="../common/main.php?command=6&ma=<?php echo $hang['maHang']; ?>" > Sửa</td>
-					<td class="sp"><a onclick="return confirm('Xóa sản phẩm này ?')" href="../process/xoa-hang.php?ma=<?php echo $hang['maHang']; ?>">Xóa</a></td>
+					<?php if ($hang['An']==1) { ?>
+						<td class="sp"><a onclick="return confirm('Hiện hãng này ?')" href="../process/hien-hang.php?ma=<?php echo $hang['maHang']; ?>">Hiện</a></td>
+					<?php } else { ?>
 
+					<td class="sp"><a onclick="return confirm('Ẩn hãng này ?')" href="../process/xoa-hang.php?ma=<?php echo $hang['maHang']; ?>">Ẩn</a></td>
+				<?php } ?>
 				</tr>
 			
 				<?php

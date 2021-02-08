@@ -60,7 +60,12 @@
 					<td class="sp"><?php echo $tl['maTheLoai']; ?></td>
 					<td class="sp"><?php echo $tl['tenTheLoai']; ?></td>
 					<td class="sp"><a href="../common/main.php?command=7&ma=<?php echo $tl['maTheLoai']; ?>">Sửa</a></td>
-					<td class="sp"><a onclick="return confirm('Xóa sản phẩm này ?')" href="../process/xoa-tl.php?ma=<?php echo $tl['maTheLoai']; ?>">Xóa</a></td>
+					<?php if ($tl['An']==1) { ?>
+						<td class="sp"><a onclick="return confirm('Hiện thể loại này ?')" href="../process/hien-tl.php?ma=<?php echo $tl['maTheLoai']; ?>">Hiện</a></td>
+					<?php } else { ?>
+
+					<td class="sp"><a onclick="return confirm('Ẩn thể loại này ?')" href="../process/xoa-tl.php?ma=<?php echo $tl['maTheLoai']; ?>">Ẩn</a></td>
+				<?php } ?>
 
 				</tr>
 			

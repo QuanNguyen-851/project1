@@ -8,6 +8,7 @@ $ten = $_POST['ten'];
 $hang = $_POST['hang'];
 $theloai = $_POST['theloai'];
 $gia = $_POST['gia'];
+$soluong = $_POST['soluong'];
 if (file_exists($target_file)) {
   $uploadOk = 0;
   echo "đã tồn tại";
@@ -26,7 +27,7 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       $con = mysqli_connect('localhost','root','','project');
-      $sql = "INSERT INTO product(tenSP, theLoai,hang,gia,anhSp) VALUES ('$ten','$theloai','$hang','$gia','$target_file')";
+      $sql = "INSERT INTO product(tenSP, theLoai,hang,gia,anhSp,soLuong) VALUES ('$ten','$theloai','$hang','$gia','$target_file','$soluong')";
       mysqli_query($con,$sql);
       mysqli_close($con);
      header("location:../common/main.php");

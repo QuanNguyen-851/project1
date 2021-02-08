@@ -2,10 +2,10 @@
     if (isset($_GET['ma'])) {
     	$ma = $_GET['ma'];
     	include("../../connect/open.php");
-    	$sql = "UPDATE theloai SET An = '1' WHERE maTheLoai = '$ma' ";
+    	$sql = "UPDATE hang SET An = '0' WHERE maHang = '$ma' ";
     		mysqli_query($con,$sql);
-    		header("location:../common/main.php?command=4");
+    		header("location:../common/main.php?command=5");
     	include("../../connect/close.php");
     } else {
-    	header("location:../common/main.php?command=4&error");
+    	header("location:../common/main.php?command=5&error");
     }

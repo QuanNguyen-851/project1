@@ -60,16 +60,11 @@
         	margin: 0;
         }
         .img{
-        	height: 75px;
-        	width: 150px;
+        	height: 100px;
+        	width: 100px;
         }
         td.sp{
         	text-align: center;
-        }
-        .sp{
-        	 white-space: nowrap;
- 			 overflow: hidden;
- 			 text-overflow: ellipsis;
         }
 	</style>
 </head>
@@ -88,7 +83,7 @@
 	$result2 = mysqli_query($con,$sql2);
 	$result3 = mysqli_query($con,$sql3);
 	?>
-	<div id='margin' style="margin-left: 3%;margin-top: 5%;border-left: 1px solid black;border-top: 1px solid black;height: 1300px;background: white">
+	<div id='margin' style="margin-left: 3%;margin-top: 5%;border-left: 1px solid black;border-top: 1px solid black;background: white">
 			<div style="height: 50px;width: 100%;background: #333333;margin-bottom: 0;display: flex;border-bottom: 2px solid black">
 			<a style="color: white" onclick="document.getElementById('add').showModal()" class="thongtin" href="#">Thêm sản phẩm</a>
 			<div class="formsearth">
@@ -100,12 +95,13 @@
         <br>
 		</div>
 		</div>
-		<div style="height: 1000px; ">
+		<div>
 			<center><table style="margin-top: 20px;color: black;width: 100%" cellpadding="0" cellspacing="0" border="1">
 				<tr>
 					<td class="sp" style="width: 85px">mã sản phẩm</td>
 				
-					<td class="sp">Tên sản phẩm</td>
+					<td colspan="2" class="sp" style="width: 300px">Tên sản phẩm</td>
+
 				
 					<td class="sp">Thể loại</td>
 				
@@ -113,12 +109,13 @@
 					<td class="sp">Hãng</td>
 				
 					<td class="sp">Giá</td>
+					<td class="sp">Số lượng</td>
 			
 				
 					<td class="sp">Thông tin sản phẩm</td>
 				
 				
-					<td class="sp">Ảnh sản phẩm</td>
+					<td class="sp"></td>
 				
 					<td></td>
 					<td></td>
@@ -129,15 +126,23 @@
 				<tr>
 					<td class="sp"><?php echo $sp['maSP']; ?></td>
 					<td class="sp"><?php echo $sp['tenSP']; ?></td>
+					<td><img height="75px" width="150px" src="<?php echo $sp['anhSp']; ?>"></td>
 					<td class="sp"><?php echo $sp['tenTheLoai']; ?></td>
 					<td class="sp"><?php echo $sp['tenHang']; ?></td>
-					<td class="sp"><?php echo number_format( $sp['gia']).' VND' ?></td>
-					<td class="sp"><?php echo $sp['thongtinsp']; ?></td>
-					<td class="img"><img height="75px" width="150px" src="<?php echo $sp['anhSp']; ?>"></td>
-					
-					<td class="sp"><a href="../common/main.php?command=3&ma=<?php echo $sp['maSP']; ?>">Sửa</a></td>
-					<td class="sp"><a onclick="return confirm('Xóa sản phẩm này ?')" href="../process/xoa-sp.php?ma=<?php echo $sp['maSP']; ?>">Xóa</a></td>
 
+					<td class="sp"><?php echo number_format( $sp['gia']).' VND' ?></td>
+					<?php if ($sp['soLuong']==0) { ?>
+						<td class="sp"><font style="color: red">Hết hàng</font></td>
+					<?php } else { ?>
+					<td class="sp"><?php echo $sp['soLuong']; ?></td>
+					<?php } ?>
+					<td class="sp"><a href="../common/main.php?command=3&ma=<?php echo $sp['maSP']; ?>">Thông tin sản phẩm</a></td>
+					<?php 
+					if ($sp['trangThai']=='') { ?>
+					<td class="sp"><a onclick="return confirm('Ngừng kinh doanh sản phẩm này ?')" href="../process/xoa-sp.php?ma=<?php echo $sp['maSP']; ?>">Ngừng kinh doanh</a></td>
+				<?php } else { ?>
+					<td class="sp"><a onclick="return confirm('Kinh doanh tiếp ?')" href="../process/tiep.php?ma=<?php echo $sp['maSP']; ?>">Tiếp tục kinh doanh</a></td>
+				<?php } ?>
 				</tr>
 			
 				<?php
@@ -169,7 +174,7 @@
  								<?php
  								while ($hang = mysqli_fetch_array($result2)) {
  									?>
- 									<option value="<?php echo $hang['maHang']; ?>"><?php echo $hang['tenHang']; ?> </option>
+ 									<option <?php if($hang['An']==1){ echo "disabled" ; } ?> value="<?php echo $hang['maHang']; ?>"><?php echo $hang['tenHang']; ?> </option>
  								
  									
  								<?php		
@@ -187,7 +192,7 @@
  								<?php
  								while ($theloai = mysqli_fetch_array($result3)) {
  									?>
- 									<option value="<?php echo $theloai['maTheLoai']; ?>"><?php echo $theloai['tenTheLoai']; ?> </option>
+ 									<option <?php if($theloai['An']==1){ echo "disabled" ; } ?> value="<?php echo $theloai['maTheLoai']; ?>"><?php echo $theloai['tenTheLoai']; ?> </option>
  								
  									
  								<?php		
@@ -204,6 +209,10 @@
  							<input type="number" name="gia" required="1">
  						</td>
  					</tr>
+ 					<tr>
+ 						<td>Số lượng</td>
+ 						<td><input required="1" type="number" name="soluong"></td>
+ 					</tr>
  				</table><br/>
  						<center><button onclick="return them()">Thêm</button><button style="margin-left: 100px;" onclick="return huy()">Hủy</button></center>
 				</form>
@@ -214,5 +223,6 @@
 			return false;
 		}
 			</script>
+			
 </body>
 </html>
