@@ -110,7 +110,7 @@ session_start();
         <div id="input">
             <h1>Contact</h1>
             <form action="send_mail_process.php" method="post">
-                <input type="email" class="inp" name="email" placeholder="Email" value="
+                <input type="email" class="inp" name="email" placeholder="Gmail" value="
                 <?php
                 if (isset($_SESSION['user'])) {
                     echo $thongtin['Email'];
@@ -120,7 +120,7 @@ session_start();
                 ?>" required><br>
                 <input type="password" class="inp" name="pass" placeholder="Password" required><br>
                 <textarea name="noidung" id="cont" required></textarea><br>
-                <span id="err" style="color:red"></span>
+                <span id="err" style="color:red"> Bạn phải chắc chắn rằng tài khoản Google của bạn cho phép truy cập của ứng dụng kém an toàn và không có bảo mật hai lớp </span>
                 <br>
 
                 <?php
