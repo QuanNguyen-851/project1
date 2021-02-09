@@ -146,7 +146,7 @@
     <div style="float: left; top: 110px;   position: fixed;box-shadow: 0px 0px 10px darkgray">
         <ul style="font-size: 20px" id="menu">
             <?php
-            $sqlmenu = "SELECT * FROM `theloai`";
+            $sqlmenu = "SELECT * FROM `theloai`WHERE An IS null or An='0'";
             $resultmenu = mysqli_query($con, $sqlmenu);
             while ($menu = mysqli_fetch_array($resultmenu)) {
             ?>
