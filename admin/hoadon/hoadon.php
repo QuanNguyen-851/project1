@@ -65,8 +65,7 @@
 		echo "<script type='text/javascript'>alert('Đã xác nhận');</script>";
 	}
 	if (isset($_GET['not'])) {
-		echo "<script type='text/javascript'>alert('Ko đủ số lượng sản phẩm trong kho');</script>";
-		echo "<script type='text/javascript'>alert('Đơn hàng sẽ bị hủy');</script>";
+		echo "<script type='text/javascript'>alert('Đơn hàng đã bị hủy');</script>";
 
 	}
 	include("../../connect/open.php");
@@ -121,8 +120,8 @@
 						<td class="sp">Xác nhận</td>
 						<td class="sp">Hủy đơn</td>
 					<?php } else { ?>
-					<td class="sp"> <a href="../process/xac-nhan.php?ma=<?php echo $hd['maHd']; ?>">Xác nhận</a></td>
-					<td class="sp"> <a href="../process/huy-don.php?ma=<?php echo $hd['maHd']; ?>">Hủy đơn</a></td>
+					<td class="sp"> <a onclick="return confirm('Xác nhận đơn hàng này ?')" href="../process/xac-nhan.php?ma=<?php echo $hd['maHd']; ?>">Xác nhận</a></td>
+					<td class="sp"> <a onclick="return confirm('Xác nhận hủy đơn ?')" href="../process/huy-don.php?ma=<?php echo $hd['maHd']; ?>">Hủy đơn</a></td>
 				<?php } ?>
 					 <td class="sp"><a href="../common/main.php?command=8&ma=<?php echo $hd['maHd']; ?>">Xem</a></td>
 					 <?php
