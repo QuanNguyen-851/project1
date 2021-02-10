@@ -214,7 +214,7 @@ if (isset($_GET['ma'])) {
 					<th><?php echo $sl; ?></th>
 				</tr>
 				<tr>
-					<td>Thêm số lượng sản phẩm:</td>
+					<td>Số lượng sản phẩm sau khi sửa:</td>
 					<th><input style="width: 100px" type="number" name="sol" placeholder="Nhập số lượng" required="1"></th>
 				</tr>
 
