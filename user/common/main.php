@@ -151,6 +151,13 @@
             while ($menu = mysqli_fetch_array($resultmenu)) {
             ?>
                 <li class="bo"><a href="?cat=2&tl=<?php echo $menu['maTheLoai'] ?>"><?php echo $menu['tenTheLoai'] ?></a>
+                    <!-- <ul class="con">
+                        <li><a href="?cat=2">Samsung</a></li>
+                        <li><a href="?cat=2">Apple</a></li>
+                        <li><a href="?cat=2">Oneplus</a></li>
+
+                    </ul> -->
+
                 </li>
             <?php
             }
