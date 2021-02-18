@@ -101,7 +101,7 @@ session_start();
         if (isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
             include("../../connect/open.php");
-            $sql = "SELECT * FROM `user1` WHERE userName='$user'";
+            $sql = "SELECT * FROM `user` WHERE userName='$user'";
             $result = mysqli_query($con, $sql);
             $thongtin = mysqli_fetch_array($result);
             include("../../connect/close.php");

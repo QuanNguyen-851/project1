@@ -29,7 +29,7 @@ if (isset($_SESSION['giohang']) && isset($_SESSION['user']) && isset($_POST['ton
         $time = date("Y-m-d") . " " . date("H:i:s");
 
         $tenuser = $_SESSION['user'];
-        $sqluser = "select * from user1 where `userName`='$tenuser'";
+        $sqluser = "select * from user where `userName`='$tenuser'";
         $resultuser = mysqli_query($con, $sqluser);
         $user = mysqli_fetch_array($resultuser);
         $ma_user = $user['maUser'];

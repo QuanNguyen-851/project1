@@ -16,7 +16,7 @@ if (
     $address = $_POST['address'];
     echo $address;
     include("../../connect/open.php");
-    $sql = "UPDATE `user1` SET 
+    $sql = "UPDATE `user` SET 
        `tenUser`='$tenuser',`SDT`='$sdt',`Email`='$email',
        `gioiTinh`='$gt',`DoB`='$DoB',`address`='$address' WHERE `maUser`='$mauser' ";
     mysqli_query($con, $sql);

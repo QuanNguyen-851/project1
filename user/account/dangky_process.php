@@ -16,7 +16,7 @@ if (isset($_SESSION['user'])) {
         $date = $_POST['date'];
         $gt = $_POST['gt'];
         include("../../connect/open.php");
-        $sql = "INSERT INTO `user1`(`tenUser`, `userName`, `pass`, `SDT`, `Email`, `gioiTinh`, `DoB`, `address`) 
+        $sql = "INSERT INTO `user`(`tenUser`, `userName`, `pass`, `SDT`, `Email`, `gioiTinh`, `DoB`, `address`) 
     VALUES ('$name','$user','$pass','$sdt','$email','$gt','$date','$address')";
         mysqli_query($con, $sql);
         include("../../connect/close.php");

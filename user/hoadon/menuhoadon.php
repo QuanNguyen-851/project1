@@ -65,12 +65,12 @@ if (isset($_SESSION["user"]) == false) {
             include("../../connect/open.php");
             if ($m == "null") {
 
-                $sql = "SELECT * FROM `user1` INNER JOIN hoadon on user1.maUser=hoadon.maUser  WHERE user1.userName='$usern' and hoadon.tinhTrang is null ORDER by hoadon.maHd DESC LIMIT 0,5 ";
+                $sql = "SELECT * FROM `user` INNER JOIN hoadon on user.maUser=hoadon.maUser  WHERE user.userName='$usern' and hoadon.tinhTrang is null ORDER by hoadon.maHd DESC LIMIT 0,5 ";
             } else if ($m == "1") {
 
-                $sql = "SELECT * FROM `user1` INNER JOIN hoadon on user1.maUser=hoadon.maUser  WHERE user1.userName='$usern'and hoadon.tinhTrang = '1' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
+                $sql = "SELECT * FROM `user` INNER JOIN hoadon on user.maUser=hoadon.maUser  WHERE user.userName='$usern'and hoadon.tinhTrang = '1' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
             } else {
-                $sql = "SELECT * FROM `user1` INNER JOIN hoadon on user1.maUser=hoadon.maUser  WHERE user1.userName='$usern'and hoadon.tinhTrang = '0' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
+                $sql = "SELECT * FROM `user` INNER JOIN hoadon on user.maUser=hoadon.maUser  WHERE user.userName='$usern'and hoadon.tinhTrang = '0' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
             }
 
             $result = mysqli_query($con, $sql);

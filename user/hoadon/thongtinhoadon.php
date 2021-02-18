@@ -87,7 +87,7 @@ if (isset($_POST['tongtien'])) {
 
         <?php
         include('../../connect/open.php');
-        $sql = "SELECT * FROM `user1` WHERE userName='$usern'";
+        $sql = "SELECT * FROM `user` WHERE userName='$usern'";
         $result = mysqli_query($con, $sql);
         $thongtin = mysqli_fetch_array($result);
         include('../../connect/close.php')

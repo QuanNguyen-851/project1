@@ -10,7 +10,7 @@ if (isset($_SESSION['pass'])) {
 if (isset($_GET['user'])) {
     $user = $_GET['user'];
     include('../../connect/open.php');
-    $sql = "SELECT * FROM `user1` WHERE userName='$user'";
+    $sql = "SELECT * FROM `user` WHERE userName='$user'";
     $regult = mysqli_query($con, $sql);
     $user1 = mysqli_fetch_array($regult);
     $pass = $user1['pass'];

@@ -37,7 +37,7 @@ if (isset($_SESSION["user"]) == false) {
             <?php
             include("../../connect/open.php");
 
-            $sql = "SELECT * FROM `user1` WHERE userName='$user' ";
+            $sql = "SELECT * FROM `user` WHERE userName='$user' ";
             $result = mysqli_query($con, $sql);
             $user = mysqli_fetch_array($result);
             include("../../connect/close.php");

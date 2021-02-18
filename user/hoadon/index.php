@@ -62,7 +62,7 @@ if (isset($_SESSION["user"]) == false) {
             </div>
             <?php
             include("../../connect/open.php");
-            $sql = "SELECT * FROM `user1` INNER JOIN hoadon on user1.maUser=hoadon.maUser  WHERE user1.userName='$usern' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
+            $sql = "SELECT * FROM `user` INNER JOIN hoadon on user.maUser=hoadon.maUser  WHERE user.userName='$usern' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
             $result = mysqli_query($con, $sql);
             include("../../connect/close.php");
             ?>

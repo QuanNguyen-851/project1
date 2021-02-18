@@ -9,7 +9,7 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
     $passvalue = $_POST['pass'];
     $pass = md5($_POST['pass']);
     include("../../connect/open.php");
-    $sql = "SELECT * FROM `user1` where userName='$user' And pass='$pass'";
+    $sql = "SELECT * FROM `user` where userName='$user' And pass='$pass'";
     $result = mysqli_query($con, $sql);
     $check = mysqli_num_rows($result);
     print_r($check);

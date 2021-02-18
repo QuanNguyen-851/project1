@@ -7,7 +7,7 @@ if (isset($_POST["old_pass"]) && isset($_POST["new_pass"]) && isset($_GET['user'
     $newpv = $_POST['new_pass'];
     $user = $_GET['user'];
     include("../../connect/open.php");
-    $sql = "UPDATE `user1` SET`pass`='$newp_pass' WHERE userName='$user'";
+    $sql = "UPDATE `user` SET`pass`='$newp_pass' WHERE userName='$user'";
     mysqli_query($con, $sql);
     if (isset($_SESSION['pass'])) {
         $_SESSION['pass'] = $newpv;

@@ -68,7 +68,7 @@ if (isset($_SESSION['user']) && isset($_GET['maHd'])) {
 
         <?php
         include('../../connect/open.php');
-        $sql = "SELECT * FROM `user1`  WHERE userName='$username'";
+        $sql = "SELECT * FROM `user`  WHERE userName='$username'";
         $result = mysqli_query($con, $sql);
         $user = mysqli_fetch_array($result);
 

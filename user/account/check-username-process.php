@@ -3,7 +3,7 @@ if (isset($_GET['username'])) {
     $username = $_GET['username'];
 
     include("../../connect/open.php");
-    $sql = "SELECT * FROM `user1` Where userName='$username'";
+    $sql = "SELECT * FROM `user` Where userName='$username'";
     $result = mysqli_query($con, $sql);
     $check = mysqli_num_rows($result);
     include("../../connect/close.php");
