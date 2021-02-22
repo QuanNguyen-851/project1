@@ -120,7 +120,7 @@ session_start();
                 ?>" required><br>
                 <input type="password" class="inp" name="pass" placeholder="Password" required><br>
                 <textarea name="noidung" id="cont" required></textarea><br>
-                <span id="err" style="color:red"> Bạn phải chắc chắn rằng tài khoản Google của bạn cho phép truy cập của ứng dụng kém an toàn và không có bảo mật hai lớp </span>
+                <!-- <span id="err" style="color:red"> Bạn phải chắc chắn rằng tài khoản Google của bạn cho phép truy cập của ứng dụng kém an toàn và không có bảo mật hai lớp </span> -->
                 <br>
 
                 <?php
