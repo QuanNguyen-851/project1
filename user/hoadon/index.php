@@ -20,6 +20,29 @@ if (isset($_SESSION["user"]) == false) {
             border-bottom: 2px solid #dbdaea;
         }
 
+        body {
+            background-color: aliceblue;
+        }
+
+        #main {
+            background: none;
+
+        }
+
+        #bottom {
+            box-shadow: 0px 0px 10px #AAA;
+
+        }
+
+        #top {
+            box-shadow: 0px 0px 10px #AAA;
+        }
+
+        #content {
+            box-shadow: none;
+            background-color: aliceblue;
+        }
+
         #chitiet {
             width: 150px;
             height: 45px;
@@ -62,7 +85,7 @@ if (isset($_SESSION["user"]) == false) {
             </div>
             <?php
             include("../../connect/open.php");
-            $sql = "SELECT * FROM `user` INNER JOIN hoadon on user.maUser=hoadon.maUser  WHERE user.userName='$usern' ORDER by hoadon.maHd DESC LIMIT 0,5 ";
+            $sql = "SELECT * FROM `user` INNER JOIN hoadon on user.maUser=hoadon.maUser  WHERE user.userName='$usern' ORDER by hoadon.maHd DESC";
             $result = mysqli_query($con, $sql);
             include("../../connect/close.php");
             ?>
