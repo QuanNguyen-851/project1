@@ -162,13 +162,16 @@ if (isset($_SESSION['user']) && isset($_GET['maHd'])) {
                                 ?>
                                     <a style=" color: blue;">Đang chờ xác nhận...</a>
                                 <?php
-                                } ?>
+                                }
+
+                                ?>
                             </td>
                         </tr>
                     </table>
                     <div class="last">
 
                         <?php
+
                         if ($hoadon['tinhTrang'] == "") {
                         ?>
                             <a onclick="return confirm('Bạn có chắc muốn hủy đơn này không ?')" href="huydonhang.php?maHd=<?php echo $maHd ?>">
@@ -179,13 +182,26 @@ if (isset($_SESSION['user']) && isset($_GET['maHd'])) {
                         ?>
                             <div class="trangThai" style="background-color: #46ff46;">Đã xác nhận</div>
                         <?php
+
                         } else {
                         ?>
                             <div class="trangThai" style="background-color:red">Đã hủy</div>
                         <?php
                         }
+
                         ?>
                     </div>
+                    <?php
+                    $err = 0;
+                    if (isset($_GET["err"]) == 1) {
+                        $err = $_GET['err'];
+
+                    ?>
+                        <a style=" color:red;margin:auto;margin-left: 252px;font-size: 25px;">
+                            xin lỗi đơn hàng của bạn đã được xác nhận trước đó! </a>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div style="height:150px">
                 </div>
@@ -196,8 +212,10 @@ if (isset($_SESSION['user']) && isset($_GET['maHd'])) {
         <?php
         include('../../connect/close.php');
         include("../common/header.php");
+
         ?>
     </body>
+
 
     </html>
 <?php
