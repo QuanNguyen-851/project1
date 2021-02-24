@@ -28,6 +28,8 @@ if (isset($_SESSION['user']) && isset($_GET['maHd'])) {
         mysqli_query($con, $sql);
 
         header("Location: hoadonchitiet.php?maHd=$maHd");
+    } else if ($loi['tinhTrang'] == "0") {
+        header("Location: hoadonchitiet.php?maHd=$maHd");
     } else {
         header("Location: hoadonchitiet.php?maHd=$maHd&err=1");
     }
