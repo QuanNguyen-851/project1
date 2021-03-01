@@ -36,7 +36,7 @@
 			<li><a class="header" href="../common/main.php?command=4">Thể loại</a></li>
 			<li><a class="header" href="../common/main.php?command=5">Hãng</a></li>
 			<li><a class="header" href='../common/main.php?command=1'>Thiết lập cá nhân</a></li>
-			<li><a class="header" href='../common/main.php?command=9'>Hóa đơn</a></li>
+			<li><a class="header" href='../common/main.php?command=9'>Đơn hàng</a></li>
 			<?php if($quyen == 1){ ?>
 				<li><a class="header" href='../common/main.php?command=2'>Quản lí tài khoản</a></li> <?php } ?>
 			<li><a class="header" href="../process/dang_xuat.php">Đăng xuất</a></li>

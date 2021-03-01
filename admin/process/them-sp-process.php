@@ -10,8 +10,8 @@ $theloai = $_POST['theloai'];
 $gia = $_POST['gia'];
 $soluong = $_POST['soluong'];
 if (file_exists($target_file)) {
-  $uploadOk = 0;
-  echo "đã tồn tại";
+  
+  header("location:../common/main.php?exist");
 }
    $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
   $filetype = $_FILES["fileToUpload"]["type"];
@@ -22,7 +22,7 @@ if (file_exists($target_file)) {
 }
 
 if ($uploadOk == 0) {
-  echo "Sorry, your file was not uploaded.";
+ header("location:../common/main.php?fail");
 
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {

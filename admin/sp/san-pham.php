@@ -70,10 +70,16 @@
 </head>
 <body>
 	<?php
+	if (isset($_GET['exist'])) {
+		echo "<script type='text/javascript'>alert('Ảnh đã tồn tại');</script>";
+	}
+	if (isset($_GET['fail'])) {
+		echo "<script type='text/javascript'>alert('Đã sảy ra lỗi khi upload ảnh');</script>";
+	}
 	include("../../connect/open.php");
 	if (isset($_GET['search']) && $_GET['search']!='') {
 		$search = $_GET['search'];
-		$sql = "SELECT * FROM (( product INNER JOIN hang ON product.hang = hang.maHang) INNER JOIN theloai ON product.theLoai = theloai.maTheLoai ) WHERE tenSP like '%$search%' ORDER BY maSP DESC";
+		$sql = "SELECT * FROM (( product INNER JOIN hang ON product.hang = hang.maHang) INNER JOIN theloai ON product.theLoai = theloai.maTheLoai ) WHERE tenSP like '%$search%' OR theLoai like '%$search%' OR hang like '%$search%' ORDER BY maSP DESC";
 	} else {
 		$sql = "SELECT * FROM (( product INNER JOIN hang ON product.hang = hang.maHang) INNER JOIN theloai ON product.theLoai = theloai.maTheLoai ) ORDER BY maSP DESC";
 	}

@@ -2,6 +2,11 @@
 if (isset($_GET['masp'])) {
     $masp = $_GET['masp'];
 }
+if (isset($_GET['err'])) {
+    $err = $_GET['err'];
+} else {
+    $err = 0;
+}
 include '../../connect/open.php';
 $sql = "SELECT 
 maSP,tenSP,gia,thongtinsp,anhSp,
@@ -64,7 +69,6 @@ include '../../connect/close.php';
                 <div class="thongtin">
                     <table style="font-size: larger;font-family: sans-serif;" border="0" cellspacing="0" cellpadding="5" width="100%">
                         <tr>
-
                             <th colspan="2" style="text-overflow: ellipsis;width: 250px;overflow: hidden; white-space: nowrap;">
                                 <?php echo $product['tenSP']; ?>
                             </th>
@@ -114,7 +118,15 @@ include '../../connect/close.php';
                         ?>
 
                     </div>
-
+                    <div style="color:red; font-size:30px; text-align:center;">
+                        <?php
+                        if ($err == 1) {
+                            echo "Xin lỗi Đơn hàng của bạn chưa được tạo vì sản phẩm này đã hết hàng";
+                        } else if ($err == 2) {
+                            echo "Xin lỗi Đơn hàng của bạn chưa được tạo vì sản phẩm này đã bị ngừng kinh doanh";
+                        }
+                        ?>
+                    </div>
                 </div>
 
             </div>
