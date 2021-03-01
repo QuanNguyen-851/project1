@@ -43,6 +43,11 @@ session_start();
             text-decoration: none;
 
         }
+
+        .fa-frown-open {
+            font-size: 170px;
+            color: #0089ff
+        }
     </style>
 
 </head>
@@ -107,9 +112,53 @@ session_start();
                     </a>
                 <?php
                 } ?>
+                <?php
+                if ($soluong['dem'] != 0) {
+                ?>
+                    <div style="display: flex;flex-wrap: wrap;justify-content: center;margin:auto; width: 900px; margin-top: 30px; ">
+                        <a href="?page=<?php if ($page > 1) {
+                                            echo $page - 1;
+                                        } else {
+                                            echo $page = 1;
+                                        } ?>&search=<?php echo $search ?>">
+                            <div class="page"><i class="fas fa-angle-double-left"></i></div>
+                        </a>
+                        <?php
+                        for ($i = 1; $i <= $sotrang; $i++) {
+                        ?>
+                            <a id="num" onclick="focus()" href="?page=<?php echo $i ?>&search=<?php echo $search ?>">
+                                <div class="page">
+                                    <?php echo $i . "  "; ?>
+                                </div>
+                            </a>
+                        <?php
+                        }
+                        ?>
+                        <?php if ($page < $sotrang) { ?>
+                            <a href="?page=<?php echo $page + 1 ?>&search=<?php echo $search ?>">
+                                <div class="page"><i class="fas fa-angle-double-right"></i></div>
+                            </a>
+                        <?php
+                        } ?>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div style="margin: auto;margin-top:50px;text-align: center;">
+                        <a><i class="far fa-frown-open"></i></a>
+                        <p style="font-size: 40px;color: aqua;">Xin lỗi không tìm thấy sản phẩm nào!</p>
+                        <a href="../common/index.php">
+                            <div style="width: 150px;margin: auto;background: black;height: 50px;text-align: center;color: white;border-radius: 15px;line-height: 45px;font-size: 27px;">Trở lại</div>
+                        </a>
+                    </div>
+                <?php
+                }
+                ?>
 
             </div>
+
         </div>
+
 
     </div>
     <div style="float: left; top: 110px;   position: fixed;box-shadow: 0px 0px 10px darkgray">
@@ -119,7 +168,7 @@ session_start();
             $resultmenu = mysqli_query($con, $sqlmenu);
             while ($menu = mysqli_fetch_array($resultmenu)) {
             ?>
-                <li class="bo"><a href="?cat=2&tl=<?php echo $menu['maTheLoai'] ?>"><?php echo $menu['tenTheLoai'] ?></a>
+                <li class="bo"><a href="../common/index.php?cat=2&tl=<?php echo $menu['maTheLoai'] ?>"><?php echo $menu['tenTheLoai'] ?></a>
                 </li>
             <?php
             }

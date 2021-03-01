@@ -125,7 +125,7 @@
                 <?php
                 for ($i = 1; $i <= $sotrang; $i++) {
                 ?>
-                    <a id="num" onclick="focus()" href="?page=<?php echo $i ?>">
+                    <a id="num" href="?page=<?php echo $i ?>">
                         <div class="page">
                             <?php echo $i . "  "; ?>
                         </div>
@@ -202,7 +202,7 @@
         Next();
     }, 6000);
     var page = document.getElementsByClassName('page')[<?php echo $page  ?>]
-    //page.style.border = '2px solid black';
+    // page.style.border = '2px solid black';
     page.style.backgroundColor = 'rgb(70, 128, 236)';
     page.style.color = 'white';
 </script>
