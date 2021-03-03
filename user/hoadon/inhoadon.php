@@ -3,9 +3,11 @@ session_start();
 if (isset($_SESSION['giohang']) && isset($_SESSION['user']) && isset($_POST['tongtien']) && isset($_POST['ten']) && isset($_POST['sdt']) && isset($_POST['address'])) {
     include("../../connect/open.php");
     $giohang = $_SESSION['giohang'];
-
+    $check =  5;
+    $count = 0;
+    $ok = 0;
     foreach ($giohang as $masp => $soluong) {
-        $check =  5;
+        $count++;
         //lấy số lượng sản phẩm trong kho
         $soluongsp = "SELECT * FROM `product` WHERE maSP='$masp'";
         $resultsp = mysqli_query($con, $soluongsp);
@@ -16,22 +18,23 @@ if (isset($_SESSION['giohang']) && isset($_SESSION['user']) && isset($_POST['ton
             $check =  2;
             $ma = $masp;
         } else if ($kho['soLuong'] >= $soluong) {
-
             //thành công
-            $check = 1;
+            $ok++;
         } else if ($kho['soLuong'] < $soluong) {
             //het hàng
             $check = 0;
             $ma = $masp;
         }
+        $ok == $ok * $check;
     }
-    if ($check == 1) {
-        //thành công
+    if ($ok == $count) {
         //trừ số lượng sản phẩm trong dtb
-
-        $update = $kho['soLuong'] - $soluong;
-        $sqlupdate = "UPDATE `product` SET`soLuong`='$update' WHERE maSP='$masp'";
-        mysqli_query($con, $sqlupdate);
+        foreach ($giohang as $masp => $soluong) {
+            $update = $kho['soLuong'] - $soluong;
+            $sqlupdate = "UPDATE `product` SET`soLuong`='$update' WHERE maSP='$masp'";
+            mysqli_query($con, $sqlupdate);
+        }
+        //thành công
         $tongtien = $_POST['tongtien'];
         $ten = $_POST['ten'];
         $sdt = $_POST['sdt'];
