@@ -1,13 +1,22 @@
 <?php
+include '../../connect/open.php';
 if (isset($_GET['masp'])) {
     $masp = $_GET['masp'];
 }
+$dem = "SELECT count(*) as oke FROM `product`where maSP='$masp'";
+$resultdem = mysqli_query($con, $dem);
+$ok = mysqli_fetch_array($resultdem);
+if ($ok['oke'] == 0) {
+    header("location:../common/index.php");
+}
+
+
 if (isset($_GET['err'])) {
     $err = $_GET['err'];
 } else {
     $err = 0;
 }
-include '../../connect/open.php';
+
 $sql = "SELECT 
 maSP,tenSP,gia,thongtinsp,anhSp,
 hang.tenHang,theloai.tenTheLoai
