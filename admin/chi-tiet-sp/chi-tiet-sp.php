@@ -1,6 +1,8 @@
 <?php
 if (isset($_GET['ma'])) {
 	$ma = $_GET['ma'];
+} else {
+	header("location:../common/main.php?");
 }
 ?>
 <!DOCTYPE html>
@@ -114,7 +116,7 @@ if (isset($_GET['ma'])) {
 						echo $sp['thongtinsp'];
 					}
 					?></textarea>
-						<button>Chốt</button>
+						<button>Cập nhật</button>
 					</form>
 				</div></center>
 			</div>
@@ -132,7 +134,7 @@ if (isset($_GET['ma'])) {
 	<dialog id="anh1">
 		<center><h1>Đổi Ảnh sản phẩm</h1></center>
 		<form action="../process/sua-anh.php?anh=1&ma=<?php echo $ma ?>" method="POST" enctype="multipart/form-data">
-			Chọn ảnh:<input type="file" name="fileToUpload"><br/><br/><br/>
+			Chọn ảnh:<input type="file" name="fileToUpload" required="1"><br/><br/><br/>
 			<button>Cập nhật</button><button onclick="return huy()" style="margin-left: 200px">Hủy</button>
 		</form>
 	</dialog>
@@ -155,11 +157,11 @@ if (isset($_GET['ma'])) {
 		<table>
 			<tr>
 				<td>Tên</td>
-				<th><input type="text" name="ten" value="<?php echo $ten;?>"></th>
+				<th><input required="1" type="text" name="ten" value="<?php echo $ten;?>"></th>
 			</tr>
 			<tr>
 				<td>Giá</td>
-				<th><input type="number" name="gia" value="<?php echo $gia;?>"></th>
+				<th><input required="1" type="number" name="gia" value="<?php echo $gia;?>"></th>
 			</tr>
 			<tr>
 			<td>Hãng</td>

@@ -73,14 +73,14 @@
 	if (isset($_GET['view'])) {
 		$pag = $_GET['view'];
 		if ($pag == 1) {
-		$sql = "SELECT * FROM hoadon INNER JOIN user ON hoadon.maUser=user.maUser WHERE tinhTrang = '0' ORDER BY maHd DESC";
+		$sql = "SELECT * FROM hoadon WHERE tinhTrang = '0' ORDER BY maHd DESC";
 	} else if ($pag == 2) {
-		$sql = "SELECT * FROM hoadon INNER JOIN user ON hoadon.maUser=user.maUser WHERE tinhTrang = '1' ORDER BY maHd DESC";
+		$sql = "SELECT * FROM hoadon WHERE tinhTrang = '1' ORDER BY maHd DESC";
 	} else {
-		$sql = "SELECT * FROM hoadon INNER JOIN user ON hoadon.maUser=user.maUser WHERE tinhTrang is null ORDER BY maHd DESC";
+		$sql = "SELECT * FROM hoadon  WHERE tinhTrang is null ORDER BY maHd DESC";
 	} 
 	} else {
-		$sql = "SELECT * FROM hoadon INNER JOIN user ON hoadon.maUser=user.maUser ORDER BY maHd DESC";
+		$sql = "SELECT * FROM hoadon  ORDER BY maHd DESC";
 	}
 	include("../../connect/open.php");
 	$result1 = mysqli_query($con,$sql);
@@ -107,7 +107,9 @@
 				<tr>
 					<td class="sp" style="width: 85px">Mã hóa đơn</td>
 				
-					<td class="sp" style="width: 300px">Người đặt</td>
+					<td class="sp" style="width: 200px">Người đặt</td>
+
+					<td class="sp" style="width: 200px">SĐT</td>
 				
 					<td class="sp">Tổng tiền</td>
 				
@@ -129,10 +131,11 @@
 				?>
 				<tr>
 					<td class="sp"><?php echo $hd['maHd']; ?></td>
-					<td class="sp"><?php echo $hd['tenUser']; ?></td>
+					<td class="sp"><?php echo $hd['tenNguoiNhan']; ?></td>
+					<td class="sp"><?php echo $hd['sdt']; ?></td>
 					<td class="sp"><?php echo number_format( $hd['tongTien']).' VND' ?></td>
 					<td class="sp"><?php echo $hd['ngayDat']; ?></td>
-					<td class="sp"><?php echo $hd['address'] ?>></td>
+					<td class="sp"><?php echo $hd['address'] ?></td>
 					<?php
 					if ($hd['tinhTrang']=='') { ?>
 						<td style="color: blue;" class="sp">Đang chờ xác nhận</a></td>
